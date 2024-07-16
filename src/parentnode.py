@@ -13,5 +13,8 @@ class ParentNode(HTMLNode):
         if not self.children:
             raise ValueError(
                     f"Error. No Children Provided in ParentNode: {self}")
-        return f"<{self.tag}{self.props_to_html()}>{''.join([child.to_html() for child in self.children])}</{self.tag}>"
-
+        return (
+            f"<{self.tag}{self.props_to_html()}>"
+            f"{''.join([child.to_html() for child in self.children])}"
+            f"</{self.tag}>"
+        )
