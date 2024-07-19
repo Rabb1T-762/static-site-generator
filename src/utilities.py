@@ -1,7 +1,11 @@
 from leafnode import LeafNode
+from textnode import TextNode
 
 
 def text_node_to_html_node(text_node):
+    if not isinstance(text_node, TextNode):
+        raise ValueError("text_node must be a TextNode")
+
     types = {"text": LeafNode("", text_node.text),
              "bold": LeafNode("b", text_node.text),
              "italic": LeafNode("i", text_node.text),

@@ -9,7 +9,9 @@ class Test_TextNodeToHtmlNode(unittest.TestCase):
     def test_is_passed_unknown_type(self):
         # Arrange
         # Act
-        text_node = TextNode("Unknown Text", "unknown")
+        text_node = TextNode("Unknown Text", "text")
+        # This is to simulate a TextNode with invalid type passed in
+        text_node.text_type = "unknown"
 
         # Assert
         with self.assertRaises(ValueError):
